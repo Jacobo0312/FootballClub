@@ -73,11 +73,13 @@
       fireEmployee();
       break;
       case 3:
+      addEmployeeToTeam();
       break;
       case 4:
       showEmployee();
       break;
       case 5:
+      
       break;
       case 6:
       break;
@@ -174,6 +176,21 @@
   System.out.println(app.showEmployee(name));
  }
 
+ public void addEmployeeToTeam (){
+  System.out.println("Enter the name of the employee");
+  String name=lector.nextLine();
+  System.out.println("Enter 1 for team A, Enter 2 for team B");
+  int team=lector.nextInt();lector.nextLine();
+  switch(team){
+    case 1: 
+    System.out.println(app.addEmployeeToTeam(1,name));
+    break;
+    case 2: 
+    System.out.println(app.addEmployeeToTeam(2,name));
+    break;
+  }
+
+ }
 
 
 

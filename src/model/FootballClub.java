@@ -12,7 +12,6 @@ private ArrayList <Employee> employees;
 private ProfessionalTeam[] teams;
 
 
-
 //Constructor
 
 public FootballClub (String name, String nit, String foundationDate){
@@ -21,7 +20,8 @@ public FootballClub (String name, String nit, String foundationDate){
 	this.foundationDate=foundationDate;
 	this.employees= new ArrayList<Employee>();
     this.teams=new ProfessionalTeam [2];
-
+    teams[0]=new ProfessionalTeam("TeamA");
+    teams[1]=new ProfessionalTeam("TeamB");
 }
 
 //Methods
@@ -114,6 +114,38 @@ public String fireEmployee(String name){
 				message += employees.get(i).toString();
 
 			}
+		return message;
+	}
+
+
+	public String addEmployeeToTeam(int option, String name){
+		String message="";
+		ProfessionalTeam team=null;
+		Employee employee=findEmployee(name);
+        if (option==1){
+          team=teams[0];
+        }
+        else if (option==2)
+        {
+        	team=teams[1];
+        }
+
+		if (employee !=null){
+			if (employee instanceof HeadCoach){
+				message=team.addHeadCoach((HeadCoach)employee);
+			}
+			else if (employee instanceof AssistantCoach){
+				message=team.addAssistent((AssistantCoach)employee);
+			}
+			else if (employee instanceof Player){
+				message=team.addPlayer((Player)employee);
+			}
+		}
+		else
+		{
+			message="The employee does not exist";
+		}
+
 		return message;
 	}
 
