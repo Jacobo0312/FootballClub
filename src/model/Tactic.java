@@ -1,6 +1,6 @@
 package model;
 
-public enum Tatic{
+public enum Tactic{
 	POSSESSION, COUNT_ATTACK, HIGH_PRESSURE,DEFAULT
 
 }

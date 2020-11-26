@@ -79,7 +79,7 @@
       showEmployee();
       break;
       case 5:
-      
+      createLineup();
       break;
       case 6:
       break;
@@ -130,8 +130,8 @@
       int goals=lector.nextInt();lector.nextLine();
       System.out.println("Enter average player rating");
       double rating=lector.nextDouble();lector.nextLine();
-      System.out.println("Enter player position");
-      String position=lector.nextLine();
+      System.out.println("Enter player position: GOALKEEPER, DEFENDER, MIDFIELDER, FORWARD");
+      String position=lector.nextLine().toUpperCase();;
       message=app.addEmployee( name,  id,  salary,  dorsal,  goals,  rating,  position);
       break;
 
@@ -154,8 +154,8 @@
       if (x==1){
        exPlayer=true;
      }
-     System.out.println("Enter the expertise");
-     String expertise=lector.nextLine();
+     System.out.println("Enter the expertise: OFFENSIVE, DEFENSIVE, POSSESSION,LAB_PLAY");
+     String expertise=lector.nextLine().toUpperCase();;
      message=app.addEmployee( name,  id,  salary,  yearsExperience,  exPlayer,  expertise);
      break;
    }
@@ -192,7 +192,17 @@
 
  }
 
-
+ public void createLineup(){
+ System.out.println("Enter 1 for team A, Enter 2 for team B");
+ int team=lector.nextInt();lector.nextLine();
+ System.out.println("Enter date of the lineup");
+ String date=lector.nextLine();
+ System.out.println("Enter the lineup,example: 4-4-2");
+ String lineup=lector.nextLine();
+ System.out.println("Enter the tactic that can be POSSESSION, COUNT_ATTACK, HIGH_PRESSURE or DEFAULT.");
+ String tatic=lector.nextLine().toUpperCase();;
+ System.out.println(app.addLineup(team, date, lineup, tatic));
+ }
 
 }
 

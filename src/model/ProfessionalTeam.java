@@ -1,4 +1,5 @@
 package model;
+import java.util.*;
 public class ProfessionalTeam {
 
 //Constant
@@ -14,13 +15,14 @@ private String name;
 private Player [] players;
 private AssistantCoach [] assistents;
 private HeadCoach coach;
+private ArrayList <Lineup> lineups;
 
 public ProfessionalTeam (String name){
 this.name=name;
 this.coach=null;
 players = new Player [MAX_PLAYERS];
 assistents= new AssistantCoach [MAX_ASSISTANTCOACH];
-this.coach=coach;
+this.lineups= new ArrayList<Lineup>();
 }
 
 
@@ -68,6 +70,12 @@ public String addPlayer (Player employee){
 		message="The 25 players already exist";
 	}
 	return message;
+}
+
+public String addLineup (String date,int [][] lineup, String tactic){
+String message="the lineup was added";	
+lineups.add(new Lineup(date,lineup,tactic));
+return message;
 }
 
 

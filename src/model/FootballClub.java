@@ -102,8 +102,15 @@ public String fireEmployee(String name){
 }
 
 	public String showEmployee(String name){
+		String message="";
 		Employee objsearch = findEmployee(name);
-		String message = objsearch.toString();
+		if (objsearch !=null){
+		message = objsearch.toString();	
+		}
+		else{
+			message="The employee does not exist";
+		}
+		
 
 	return message;
 	}
@@ -150,6 +157,71 @@ public String fireEmployee(String name){
 	}
 
 
+
+   public String addLineup(int option, String date, String lineup, String tatic){
+   	String message="";
+		ProfessionalTeam team=null;
+        if (option==1){
+          team=teams[0];
+        }
+        else if (option==2)
+        {
+        	team=teams[1];
+        }
+
+     String[] lineups = lineup.split("-");
+    
+     int def=Integer.parseInt(lineups[0]);
+     int mid=Integer.parseInt(lineups[1]);
+     int ata=Integer.parseInt(lineups[2]);
+     int suma=def+mid+ata;
+
+	    if (suma != 10){
+	    	message="!Invalid lineup¡";
+	    }
+	    else{
+	    	int matrix [][]=new int [10][7];
+	    	matrix [9][3]=1;
+	    	matrix = lineupToMatrix(8,matrix,def);
+	    	matrix = lineupToMatrix(5,matrix,mid);
+	    	matrix = lineupToMatrix(2,matrix,ata);
+	    	message=team.addLineup(date,matrix,tatic);
+	    }
+     return message;
+   }
+
+
+   public int [][] lineupToMatrix (int row, int [][] matrix, int option){
+    switch (option){
+    	case 1:
+    	matrix[row][3]=1;
+    	break;
+    	case 2:
+    	matrix [row][2]=1;
+    	matrix [row][4]=1;
+    	break;
+    	case 3:
+    	matrix [row][1]=1;
+    	matrix [row][3]=1;
+    	matrix [row][5]=1;
+    	break;
+    	case 4:
+    	matrix [row][0]=1;
+    	matrix [row][2]=1;
+    	matrix [row][4]=1;
+    	matrix [row][6]=1;
+    	break;
+    	case 5:
+    	matrix [row][0]=1;
+    	matrix [row][2]=1;
+    	matrix [row][3]=1;
+    	matrix [row][4]=1;
+    	matrix [row][6]=1;
+        break;
+    }
+    return matrix;
+   }
+    
 
 
 

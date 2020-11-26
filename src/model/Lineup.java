@@ -2,11 +2,17 @@ package model;
 public class Lineup{
 //Attributes
 	private String date;
-	//matriz
+    private int [][] matrix;
 
-	//Relationship
 
-	private Tactic tatic;
+//Relationships
+	private Tactic tactic;
+
+	public Lineup (String date,int [][] matrix, String tactic){
+    this.date=date;
+    this.matrix=matrix;
+    this.tactic=Tactic.valueOf(tactic);
+	}
 	
 	
 }
