@@ -78,6 +78,51 @@ lineups.add(new Lineup(date,lineup,tactic));
 return message;
 }
 
+public String showLineups(){
+String message = "";
+for(int i = 0; i<lineups.size(); i++){
+message += lineups.get(i).toString();
+}
+return message;
+
+}
+
+public String showAssistants (){
+	String message="";
+	for (int i=0; i<MAX_ASSISTANTCOACH;i++){
+		if (assistents[i] !=null){
+			message+=assistents[i].toString();
+		}
+	}
+	return message;
+}
+
+public String showPlayers (){
+	String message="";
+	for (int i=0; i<MAX_PLAYERS;i++){
+		if (players[i] !=null){
+			message+=players[i].toString();
+		}
+	}
+	return message;
+}
+
+
+
+
+
+public String toString (){
+	   String message = "";
+   message += "\n **********TEAM***********" +
+   "\n NAME: " + name +
+   "\n HEADCOACH: " + coach + 
+   "\n Assistants: " + showAssistants() + 
+   "\n PLAYERS: " + showPlayers() + 
+   "\n LINEUPS: " + showLineups() + 
+   "\n ***************************************************";
+   return message;
+}
+
 
 
 }

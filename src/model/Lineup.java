@@ -14,5 +14,32 @@ public class Lineup{
     this.tactic=Tactic.valueOf(tactic);
 	}
 	
+
+	public String toString (){
+    String message = "";
+	message = "\n ********** lineup ***********" +
+	"\n Date: " + date +
+	"\n Tatic: " + tactic +  
+	"\n Lineup: \n" + MatrixToString() +
+	"\n *************************";
+	return message;
+	}
+
+
+
+   public String MatrixToString (){
+         String message="";
+         for (int i = 0; i < 10; i++){
+            for (int j = 0; j < 7; j++){
+                message+=(matrix[i][j]+"	");
+            }
+            message+="\n";
+        }
+        return message;
+   }
+
 	
 }
+
+
+

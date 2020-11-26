@@ -222,6 +222,19 @@ public String fireEmployee(String name){
     return matrix;
    }
     
+public String showTeamInfo(int option){
+   	String message="";
+		ProfessionalTeam team=null;
+        if (option==1){
+          team=teams[0];
+        }
+        else if (option==2)
+        {
+        	team=teams[1];
+        }
+        message=team.toString();
+        return message;
+    }
 
 
 

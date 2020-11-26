@@ -82,6 +82,7 @@
       createLineup();
       break;
       case 6:
+      showTeamInfo();
       break;
       case 7:
       break;
@@ -202,6 +203,14 @@
  System.out.println("Enter the tactic that can be POSSESSION, COUNT_ATTACK, HIGH_PRESSURE or DEFAULT.");
  String tatic=lector.nextLine().toUpperCase();;
  System.out.println(app.addLineup(team, date, lineup, tatic));
+ }
+
+
+
+ public void showTeamInfo(){
+  System.out.println("Enter 1 for team A, Enter 2 for team B");
+  int team=lector.nextInt();lector.nextLine();
+  System.out.println(app.showTeamInfo(team));
  }
 
 }
