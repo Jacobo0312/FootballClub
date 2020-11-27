@@ -10,7 +10,9 @@ private String foundationDate;
 //Relationship
 private ArrayList <Employee> employees;
 private ProfessionalTeam[] teams;
-
+private String [][] offices;
+private String [][] dressingRoomsA;
+private String [][] dressingRoomsB;
 
 //Constructor
 
@@ -22,6 +24,9 @@ public FootballClub (String name, String nit, String foundationDate){
     this.teams=new ProfessionalTeam [2];
     teams[0]=new ProfessionalTeam("TeamA");
     teams[1]=new ProfessionalTeam("TeamB");
+    this.offices= new String [6][6];
+    this.dressingRoomsA= new String [7][7];
+    this.dressingRoomsB= new String [7][6];
 }
 
 //Methods
@@ -87,6 +92,7 @@ return message;
 
 public String fireEmployee(String name){
 	//Cambiar si el empleado pertenece a un equipo
+	//Validaciones
 	String message="";
 	Employee employee=findEmployee(name);
 	if (employee == null)
@@ -121,6 +127,8 @@ public String fireEmployee(String name){
 				message += employees.get(i).toString();
 
 			}
+		message+=showTeamInfo(1);
+		message+=showTeamInfo(2);
 		return message;
 	}
 
@@ -159,7 +167,7 @@ public String fireEmployee(String name){
 
 
    public String addLineup(int option, String date, String lineup, String tatic){
-   	String message="";
+   	    String message="";
 		ProfessionalTeam team=null;
         if (option==1){
           team=teams[0];
@@ -235,6 +243,159 @@ public String showTeamInfo(int option){
         message=team.toString();
         return message;
     }
+
+public void locatedOffices (){
+	 ArrayList <Employee> coaches;coaches= new ArrayList<Employee>();
+	 for (int a=0;a<employees.size();a++){
+	 	if (employees.get(a) instanceof Coach && employees.get(a).getStatus().equalsIgnoreCase("ACTIVE")){
+	 		coaches.add(employees.get(a));
+	 	}
+	 }
+
+	 int x=0;
+	 for (int i = 0; i < 6 && x<coaches.size(); i++){
+            for (int j = 0; j < 6 && x<coaches.size(); j++){
+                if ((i%2==0 && j%2==0) || (i%2 !=0 && j%2 !=0)){	
+	              
+               
+                  offices[i][j]=coaches.get(x).getName();
+                  x++;
+	             }
+	             else
+	             {
+                  offices[i][j]="";   
+	             }
+            }
+        }
+}
+
+public void cleanOffices(){
+	 for (int i = 0; i < 6; i++){
+            for (int j = 0; j < 6; j++){
+            offices[i][j]="";
+
+            }
+        }
+}
+
+
+public String officesToString(){
+	cleanOffices();
+	locatedOffices();
+	     String message="**************** OFFICES **************** \n ";
+         for (int i = 0; i < 6; i++){
+            for (int j = 0; j < 6; j++){
+                if (offices[i][j] !=null)
+                	 message+=(offices[i][j]+"	");
+               
+            }
+            message+="\n";
+        }
+        return message;
+}
+
+public void cleanDressingRooms(){
+	for (int i = 0; i < 7; i++){
+		for (int j = 0; j < 7; j++){
+			dressingRoomsA[i][j]="";
+
+		}
+	}
+	for (int i = 0; i < 7; i++){
+		for (int j = 0; j < 6; j++){
+			dressingRoomsB[i][j]="";
+
+		}
+	}
+
+}
+
+
+
+
+
+public void locatedDressingsA (){
+	 ArrayList <Employee> playersA;playersA= new ArrayList<Employee>();
+	 Player [] teamPlayersA=teams[0].getPlayers();
+
+	 for (int a=0;a<teamPlayersA.length;a++){
+	 	if (teamPlayersA[a] instanceof Player && teamPlayersA[a].getStatus().equalsIgnoreCase("ACTIVE")){
+	 		playersA.add(teamPlayersA[a]);
+	 	}
+	 }
+
+	 int x=0;
+	 for (int i = 0; i < 7 && x<playersA.size(); i++){
+            for (int j = 0; j < 7 && x<playersA.size(); j++){
+                if ((i%2==0 && j%2==0) || (i%2 !=0 && j%2 !=0)){	
+	              
+               
+                  dressingRoomsA[i][j]=playersA.get(x).getName();
+                  x++;
+	             }
+	             else
+	             {
+                  dressingRoomsA[i][j]="";   
+	             }
+            }
+        }
+}
+
+public void locatedDressingsB (){
+	 ArrayList <Employee> playersB;playersB= new ArrayList<Employee>();
+	 Player [] teamPlayersB=teams[1].getPlayers();
+	 for (int a=0;a<teamPlayersB.length;a++){
+	 	if (teamPlayersB[a] instanceof Player && teamPlayersB[a].getStatus().equalsIgnoreCase("ACTIVE")){
+	 		playersB.add(teamPlayersB[a]);
+	 	}
+	 }
+
+	 int x=0;
+	 for (int i = 0; i < 7 && x<playersB.size(); i++){
+            for (int j = 0; j < 6 && x<playersB.size(); j++){
+                if ((i%2==0 && j%2==0) || (i%2 !=0 && j%2 !=0)){	
+	              
+               
+                  dressingRoomsB[i][j]=playersB.get(x).getName();
+                  x++;
+	             }
+	             else
+	             {
+                  dressingRoomsB[i][j]="";   
+	             }
+            }
+        }
+}
+
+
+public String dreassingToString(){
+	cleanDressingRooms();
+	locatedDressingsA();
+	locatedDressingsB();
+	     
+	     String message="**************** DREASSING ROOM TEAM A **************** \n ";
+         for (int i = 0; i < 7; i++){
+            for (int j = 0; j < 7; j++){
+                if (dressingRoomsA[i][j] !=null)
+                	 message+=(dressingRoomsA[i][j]+"	");
+               
+            }
+            message+="\n";
+        }
+     
+     	      message+="**************** DREASSING ROOM TEAM B **************** \n ";
+         for (int i = 0; i < 7; i++){
+            for (int j = 0; j < 6; j++){
+                if (dressingRoomsB[i][j] !=null)
+                	 message+=(dressingRoomsB[i][j]+"	");
+               
+            }
+            message+="\n";
+        }
+        return message;
+}
+
+
 
 
 

@@ -18,6 +18,10 @@ public String getName(){
 	return name;
 }
 
+public String getStatus(){
+	return status;
+}
+
 
 public void setStatus(String pStatus){
 	status=pStatus;

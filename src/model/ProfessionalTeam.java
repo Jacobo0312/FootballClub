@@ -25,6 +25,10 @@ assistents= new AssistantCoach [MAX_ASSISTANTCOACH];
 this.lineups= new ArrayList<Lineup>();
 }
 
+public Player [] getPlayers(){
+	return players;
+}
+
 
 public String addHeadCoach (HeadCoach employee){
 String message="";

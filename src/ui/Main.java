@@ -85,8 +85,10 @@
       showTeamInfo();
       break;
       case 7:
+      System.out.println(app.officesToString());
       break;
       case 8:
+      System.out.println(app.dreassingToString());
       break;
       case 9:
       System.out.println(app.showInfo());
@@ -113,7 +115,7 @@
 
   public void addEmployee(){
     String message="";
-    System.out.println("1.to enter a player \n" +"2 to enter a head coach\n"+"3.to enter a assistant coach");
+    System.out.println("1.to enter a player \n" +"2. to enter a head coach\n"+"3.to enter a assistant coach");
     int option=lector.nextInt();lector.nextLine();
     System.out.println("Enter name ");
     String name=lector.nextLine();
