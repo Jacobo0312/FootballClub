@@ -53,7 +53,7 @@
       "(7) Place coaches in offices \n" +
       "(8) Place players in locker rooms  \n" +
       "(9) Show club information  \n" +
-      "(0) Para salir"
+      "(0) To exit"
       );
     option= lector.nextInt();
     lector.nextLine();

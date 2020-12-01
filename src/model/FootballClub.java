@@ -123,12 +123,17 @@ public String fireEmployee(String name){
 
 	public String showInfo(){
 		String message = "";
+		//MOstrad datos del clib
+
+
 		for(int i = 0; i<employees.size(); i++){
 				message += employees.get(i).toString();
 
 			}
 		message+=showTeamInfo(1);
 		message+=showTeamInfo(2);
+        message+=officesToString();
+		message+=dreassingToString();
 		return message;
 	}
 
@@ -282,7 +287,7 @@ public void cleanOffices(){
 public String officesToString(){
 	cleanOffices();
 	locatedOffices();
-	     String message="**************** OFFICES **************** \n ";
+	     String message="\n**************** OFFICES **************** \n ";
          for (int i = 0; i < 6; i++){
             for (int j = 0; j < 6; j++){
                 if (offices[i][j] !=null)
@@ -323,7 +328,7 @@ public void locatedDressingsA (){
 	 		playersA.add(teamPlayersA[a]);
 	 	}
 	 }
-
+     
 	 int x=0;
 	 for (int i = 0; i < 7 && x<playersA.size(); i++){
             for (int j = 0; j < 7 && x<playersA.size(); j++){
@@ -349,6 +354,9 @@ public void locatedDressingsB (){
 	 		playersB.add(teamPlayersB[a]);
 	 	}
 	 }
+     
+     Collections.shuffle(playersB);
+
 
 	 int x=0;
 	 for (int i = 0; i < 7 && x<playersB.size(); i++){
