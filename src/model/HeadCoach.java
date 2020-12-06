@@ -36,5 +36,17 @@ public double level(){
 			return message;
 	}
 
+public void setNumbersTeams (int teams){
+	this.numbersTeams=teams;
+}
+
+public void setPrice(){
+	this.price=calculatePrice();
+}	
+
+public void setLevel(){
+	this.level=level();
+}
+
 
 }

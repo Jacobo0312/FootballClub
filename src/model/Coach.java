@@ -24,4 +24,10 @@ public String toString(){
 	return message;
 }
 
+public void setYearsExperience (int years){
+	this.yearsExperience=years;
+}
+
+
+
 }

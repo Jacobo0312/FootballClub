@@ -80,5 +80,30 @@ public String toString(){
    return message;
 }
 
+public void setGoals(int goals){
+  this.goals=goals;
+}
+
+public void setRating(double rating){
+  this.rating=rating;
+}
+
+public void setPosition(String position){
+  this.position=Position.valueOf(position);
+}
+
+public void setDorsal (int dorsal){
+  this.dorsal=dorsal;
+}
+
+public void setLevel(){
+  this.level=level();
+}
+
+public void setPrice (){
+  this.price=calculatePrice();
+}
+
+
 
 }

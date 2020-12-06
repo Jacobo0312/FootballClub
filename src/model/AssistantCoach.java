@@ -32,7 +32,9 @@ public class AssistantCoach extends Coach{
 		return message;
 	}
 	
-
+public void setExpertise(String expertise){
+	this.expertise=Expertise.valueOf(expertise);
+}
 	
 }
 

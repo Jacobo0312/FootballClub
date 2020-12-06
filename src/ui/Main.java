@@ -53,6 +53,7 @@
       "(7) Place coaches in offices \n" +
       "(8) Place players in locker rooms  \n" +
       "(9) Show club information  \n" +
+      "(10) To modify employees  \n" +
       "(0) To exit"
       );
     option= lector.nextInt();
@@ -92,6 +93,9 @@
       break;
       case 9:
       System.out.println(app.showInfo());
+      break;
+      case 10:
+      modify();
       break;
       default:
       System.out.println("Error...");
@@ -214,6 +218,90 @@
   int team=lector.nextInt();lector.nextLine();
   System.out.println(app.showTeamInfo(team));
  }
+
+
+public void modify() {
+    
+    int option;
+    
+    System.out.println("Modificar atributo de empleado");
+    System.out.println("write the name of the employee you want to modify");
+    String name = lector.nextLine();
+    System.out.println("What information, do you want to modify?");
+    System.out.println
+                      ("\n 1.to modify the name."+
+                        "\n 2.For the id."+
+                        "\n 3.For the salary."+
+                        "\n 4.if is a coach write 4 to modify years experience. "+
+                        "\n 5.if is a head coach, choose 5 to modify teams in charge or."+ 
+                        "\n 6. to modify championship won"+
+                        "\n 7.is you want modifythe expertice"+
+                        "\n 8.if is  a player, choose 9 to modify player number,"+
+                        "\n 9. to modify de position,"+
+                        "\n 10. to modify goals or"+
+                        "\n 11. to modify rating");
+    
+    option = lector.nextInt();lector.nextLine();
+    
+    switch(option) {
+    case 1:
+    System.out.println("Write the new name"); 
+    String newname = lector.nextLine();
+    System.out.println(app.setName( name,newname));
+      break;
+    case 2:
+    System.out.println("Write the new id");
+    String newid= lector.nextLine();
+    System.out.println(app.setId(name, newid));
+      break;
+    case 3:
+    System.out.println("Write the new salary");
+    double newsalary = lector.nextDouble();
+    System.out.println(app.setSalary( name, newsalary));
+      break;
+    case 4:
+    System.out.println("Write the new years experience");
+    int newyears = lector.nextInt();lector.nextLine();
+    System.out.println(app.setYears( name,  newyears));
+      break;
+    case 5:
+    System.out.println("Write the new teams in charge");
+    int newteams = lector.nextInt();lector.nextLine();
+    System.out.println(app.setTeams(name, newteams));
+      break;
+    case 6:
+    System.out.println("Write the new championschip won");
+    int newchampions = lector.nextInt();lector.nextLine();
+    System.out.println(app.setChampions(name, newchampions));
+      break;
+    case 7:
+    System.out.println("Write the new expertice(OFFENSIVE, DEFENSIVE, POSSESSION,LAB_PLAY)");
+    String newexpertice = lector.nextLine();
+    System.out.println(app.setExpertise(name, newexpertice));
+      break;
+    case 8:
+    System.out.println("Write the new player number");
+    int newnumber = lector.nextInt();lector.nextLine();
+    System.out.println(app.setDorsal( name, newnumber));
+      break;
+    case 9:
+    System.out.println("Write the new position (GOALKEEPER, DEFENDER, MIDFIELDER, FORWARD)");
+    String newposition = lector.nextLine().toUpperCase();
+    System.out.println(app.setPosition( name, newposition));
+      break;
+    case 10:
+    System.out.println("Write the new goals");
+    int newgoals = lector.nextInt();lector.nextLine();
+    System.out.println(app.setGoals( name, newgoals));
+      break;
+    case 11:
+    System.out.println("Write the new rating");
+    double newrating = lector.nextDouble();lector.nextLine();
+    System.out.println(app.setRating( name,newrating));
+      break;  
+    } 
+  }
+
 
 }
 

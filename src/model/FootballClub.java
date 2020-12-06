@@ -403,6 +403,166 @@ public String dreassingToString(){
         return message;
 }
 
+public String setName (String name, String newname){
+	String message="";
+	Employee employee=findEmployee(name);
+	if (employee ==null){
+		message="The employee does not exist";
+	}
+	else{
+		employee.setName(newname);
+		message="The name was modified";
+	}
+	return message;
+}
+
+public String setId (String name, String id){
+	String message="";
+	Employee employee=findEmployee(name);
+	if (employee ==null){
+		message="The employee does not exist";
+	}
+	else{
+		employee.setId(id);
+		message="The id was modified";
+	}
+return message;
+}
+
+public String setSalary (String name, double salary){
+	String message="";
+	Employee employee=findEmployee(name);
+	if (employee ==null){
+		message="The employee does not exist";
+	}
+	else
+	{
+		employee.setSalary(salary);
+		message="The salary was modified";
+	}
+
+	return message;
+}
+
+public String setYears (String name, int years){
+	String message="";
+	Employee employee=findEmployee(name);
+	if (employee == null){
+		message="The employee does not exist";	
+	}
+	else if (employee instanceof Coach)
+	{
+		((Coach)employee).setYearsExperience(years);
+		message="The years was modified";
+		if (employee instanceof HeadCoach){
+			((HeadCoach)employee).setPrice();
+		}
+	}
+return message;
+}
+
+public String setTeams (String name, int pTeams){
+	String message="";
+	Employee employee=findEmployee(name);
+	if (employee==null){
+		message="The employee does not exist";
+	}
+	else if (employee instanceof HeadCoach)
+	{
+		((HeadCoach)employee).setNumbersTeams(pTeams);
+		message="The numbers team was modified";
+	}
+return message;
+}
+
+
+public String setChampions (String name, int champions){
+	String message="";
+	Employee employee=findEmployee(name);
+	if (employee==null){
+		message="The employee does not exist";
+	}
+	else if (employee instanceof HeadCoach)
+	{
+		((HeadCoach)employee).setNumbersTeams(champions);
+		((HeadCoach)employee).setLevel();
+		((HeadCoach)employee).setPrice();
+		message="The numbers team was modified";
+	}
+return message;
+}
+
+public String setDorsal (String name, int dorsal){
+	String message="";
+	Employee employee=findEmployee(name);
+	if (employee==null){
+		message="The employee does not exit";
+	}
+	else{
+		((Player)employee).setDorsal(dorsal);
+		message="The dorsal was modified";
+	}
+return message;
+} 
+
+public String setPosition (String name, String position){
+	String message="";
+	Employee employee=findEmployee(name);
+	if (employee==null){
+		message="The employee does not exist";
+	}
+	else{
+		((Player)employee).setPosition(position);
+		message="The position was modified";
+	}
+	return message;
+}
+
+public String setExpertise(String name, String expertise){
+	String message="";
+	Employee employee=findEmployee(name);
+	if (employee==null){
+		message="The employee does not exist";
+	}
+	else if (employee instanceof AssistantCoach ){
+		((AssistantCoach)employee).setExpertise(expertise);
+		message="The expertise was modified";
+	}
+	return message;
+}
+
+public String setGoals(String name, int goals){
+String message="";
+Employee employee=findEmployee(name);
+if (employee==null){
+	message="The employee does not exist";
+}	
+else if (employee instanceof Player)
+{
+	((Player)employee).setGoals(goals);
+	((Player)employee).setLevel();
+	((Player)employee).setPrice();
+	message="The goals was modified";
+}
+return message;
+}
+
+public String setRating (String name, double rating){
+	String message="";
+	Employee employee=findEmployee(name);
+	if (employee == null){
+		message="The employee does exist";
+	}
+	else if (employee instanceof Player)
+	{
+		((Player)employee).setRating (rating);
+		message="The rating was modified";
+	}
+	return message;
+}
+
+
+
 
 
 
