@@ -224,7 +224,6 @@ public void modify() {
     
     int option;
     
-    System.out.println("Modificar atributo de empleado");
     System.out.println("write the name of the employee you want to modify");
     String name = lector.nextLine();
     System.out.println("What information, do you want to modify?");
@@ -236,7 +235,7 @@ public void modify() {
                         "\n 5.if is a head coach, choose 5 to modify teams in charge or."+ 
                         "\n 6. to modify championship won"+
                         "\n 7.is you want modifythe expertice"+
-                        "\n 8.if is  a player, choose 9 to modify player number,"+
+                        "\n 8.To modify player dorsal"+
                         "\n 9. to modify de position,"+
                         "\n 10. to modify goals or"+
                         "\n 11. to modify rating");
